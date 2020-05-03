@@ -96,6 +96,9 @@ namespace WorldCities.Controllers
                 nCities++;
 
                 _logger.LogInformation($"city loading ({nRow}/{ws.Dimension.End.Row}): {city.Name_ASCII}...");
+
+                // TODO remove this
+                if (nRow > 250) break;
             }
 
             // add the cities all at once
