@@ -21,9 +21,13 @@ namespace WorldCities.Controllers
 
         // GET: api/Trades
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Trade>>> GetTrades()
+        public async Task<ActionResult<ApiResult<Trade>>> GetTrades(
+            int pageIndex = 0,
+            int pageSize = 10,
+            string sortColumn = null,
+            string sortOrder = null)
         {
-            return await _context.Trades.ToListAsync();
+            return await ApiResult<Trade>.CreateAsync(_context.Trades, pageIndex, pageSize, sortColumn, sortOrder);
         }
 
         // GET: api/Trades/5

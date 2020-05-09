@@ -1,0 +1,49 @@
+<h1>Trades</h1>
+<p>Here's a list of trades statarb trades: feel free to play with it.</p>
+<p *ngIf="!trades"><em>Loading...</em></p>
+
+<table mat-table [dataSource]="trades" class="mat-elevation-z8" [hidden]="!trades"
+       matSort (matSortChange)="loadData()"
+       matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let trade">{{trade.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</th>
+    <td mat-cell *matCellDef="let trade">{{trade.symbol}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="openDateTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Open Date</th>
+    <td mat-cell *matCellDef="let trade">{{trade.openDateTime}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="pxOpen">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Open Price</th>
+    <td mat-cell *matCellDef="let trade">{{trade.pxOpen}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="closeDateTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Close Date</th>
+    <td mat-cell *matCellDef="let trade">{{trade.CloseDateTime}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="pxClose">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Close Price</th>
+    <td mat-cell *matCellDef="let trade">{{trade.pxClose}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Pagination directive -->
+<mat-paginator [hidden]="!trades"
+               (page)="getData($event)"
+               [length]="10"
+               [pageSize]="10"
+               [pageSizeOptions]="[10,20,50]"
+               showFirstLastButtons></mat-paginator>
