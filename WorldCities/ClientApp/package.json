@@ -32,7 +32,8 @@
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",
-    "zone.js": "0.9.1"
+    "zone.js": "0.9.1",
+    "minimist": ">=1.2.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",
@@ -50,7 +51,8 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "typescript": "3.5.3"
+    "typescript": "3.5.3",
+    "minimist": ">=1.2.3"
   },
   "optionalDependencies": {
     "node-sass": "^4.12.0",
