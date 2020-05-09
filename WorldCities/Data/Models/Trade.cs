@@ -11,6 +11,8 @@ namespace WorldCities.Data.Models
 
         public string Direction { get; set; }
 
+        public int Quantity { get; set; }
+
         public string Status { get; set; }
 
         public DateTime? OpenDateTime { get; set; }

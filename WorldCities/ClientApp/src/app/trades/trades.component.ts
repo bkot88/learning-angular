@@ -16,6 +16,8 @@ export class TradesComponent {
   public trades: MatTableDataSource<Trade>;
   public displayedColumns: string[] = [
     'symbol',
+    'direction',
+    "quantity",
     'openDateTime',
     'pxOpen',
     'closeDateTime',
