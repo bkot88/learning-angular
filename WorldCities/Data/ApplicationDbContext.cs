@@ -7,6 +7,7 @@ namespace WorldCities.Data
     {
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Trade> Trades { get; set; }
 
         public ApplicationDbContext() : base()
         {
