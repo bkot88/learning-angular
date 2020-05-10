@@ -11,6 +11,9 @@ import { CitiesComponent } from './cities/cities.component';
 import { TradesComponent } from './trades/trades.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CityEditComponent } from './cities/city-edit/city-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { AngularMaterialModule } from './angular-material.module';
     NavMenuComponent,
     HomeComponent,
     CitiesComponent,
+    CityEditComponent,
     TradesComponent
   ],
   imports: [
@@ -27,12 +31,15 @@ import { AngularMaterialModule } from './angular-material.module';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cities', component: CitiesComponent },
+      { path: 'city/:id', component: CityEditComponent },
       { path: 'trades', component: TradesComponent }
     ]),
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
