@@ -30,12 +30,13 @@ namespace WorldCities
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseInMemoryDatabase("WorldCities");
+                //options.UseInMemoryDatabase("WorldCities");
+                options.UseNpgsql("Host=localhost;Database=bnb;Username=postgres;Password=Welcome@2020");
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -73,6 +74,8 @@ namespace WorldCities
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            context.EnesureCreated();
         }
     }
 }
